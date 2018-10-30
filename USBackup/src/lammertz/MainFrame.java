@@ -5,6 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.UIManager;
+
+import hillermann.OptionFrame;
+
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.util.Random;
