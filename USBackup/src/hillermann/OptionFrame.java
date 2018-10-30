@@ -1,4 +1,4 @@
-package lammertz;
+package hillermann;
 
 
 import javax.swing.JFrame;
@@ -131,7 +131,12 @@ public class OptionFrame
 			{
 				if(txtfBackupPath.getText().length() > 0 && txtfBackupSavePath.getText().length() > 0)
 				{
+					
+					String backupPath = txtfBackupPath.getText().toString();
+					String backupSavePath = txtfBackupSavePath.getText().toString();
+					boolean isAutoBackup = chAutoBackup.isSelected();
 					//AppSettings.getInstance().setBackupPath();
+					
 					optionFrame.setVisible(false);
 				}
 				else

@@ -7,6 +7,7 @@ import javax.swing.JMenuBar;
 import javax.swing.UIManager;
 
 import controller.main.MainController;
+import hillermann.OptionFrame;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
