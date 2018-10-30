@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package model.usbdrivedetector;
+package supportingFiles.usbdrivedetector;
 
 import java.io.File;
 import javax.swing.filechooser.FileSystemView;

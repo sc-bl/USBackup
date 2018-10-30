@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model.usbdrivedetector.detectors;
+package supportingFiles.usbdrivedetector.detectors;
 
 import java.io.File;
 import java.util.List;
 
-import model.usbdrivedetector.USBStorageDevice;
+import supportingFiles.usbdrivedetector.USBStorageDevice;
 
 /**
  * This class is prepared to:

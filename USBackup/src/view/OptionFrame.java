@@ -1,4 +1,4 @@
-package hillermann;
+package view;
 
 
 import javax.swing.JFrame;

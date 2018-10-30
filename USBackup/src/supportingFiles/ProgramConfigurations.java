@@ -1,4 +1,4 @@
-package properties;
+package supportingFiles;
 
 /**
  * Some constants for configuration of test environment.<br> 

@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import properties.ProgramConfigurations;
+import supportingFiles.ProgramConfigurations;
 import view.GUI;
 import view.TrayUI.TrayIconUtil;
 
@@ -22,9 +22,9 @@ public class UUIDHelper
    private static LinkOption[] linkOption = new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
    
    private static CopyOption[] copyOption = new CopyOption[] { // StandardCopyOption.ATOMIC_MOVE,      // Nur beim Umbenennen verwenden!
-                                                               // StandardCopyOption.COPY_ATTRIBUTES,  // Attribute mit übernehmen
-                                                               // StandardCopyOption.REPLACE_EXISTING, // Überschreiben, wenn schon vorhanden
-                                                               LinkOption.NOFOLLOW_LINKS };         // OriginalLink, nicht die verknüpfte Datei 
+                                                               // StandardCopyOption.COPY_ATTRIBUTES,  // Attribute mit ï¿½bernehmen
+                                                               // StandardCopyOption.REPLACE_EXISTING, // ï¿½berschreiben, wenn schon vorhanden
+                                                               LinkOption.NOFOLLOW_LINKS };         // OriginalLink, nicht die verknï¿½pfte Datei 
 
    private static boolean dos  = false;
    private static boolean posix = false;
@@ -40,7 +40,7 @@ public class UUIDHelper
    {
       Path ziel = Paths.get ( targetName, ProgramConfigurations.UUID_FILE_NAME );
 
-      // Prüfen, ob schon eine Datei mit dem Namen vorhanden ist.
+      // Prï¿½fen, ob schon eine Datei mit dem Namen vorhanden ist.
       if (Files.exists ( ziel, linkOption ))
       {
          // Wenn Verzeichnis mit diesem Namen existiert (unwahrscheinlich!)
@@ -71,14 +71,14 @@ public class UUIDHelper
          return null;
       }
 
-      // Datei schützen
+      // Datei schï¿½tzen
       if ( !setHiddenAndProtected ( ziel, true ) )
          return null;
       
       return uuid; 
    }
    
-   // Zugriffsrechte für UUID-Datei ändern
+   // Zugriffsrechte fï¿½r UUID-Datei ï¿½ndern
    private boolean setHiddenAndProtected ( Path path, boolean hideAndProtect )
    {
       // Herausfinden, um welches Dateisystem es sich handelt.
@@ -145,7 +145,7 @@ public class UUIDHelper
    
    private boolean checkFileSystem ( Path path ) 
    {
-      // Dateieigenschaften unabhängig vom Betriebssystem setzen
+      // Dateieigenschaften unabhï¿½ngig vom Betriebssystem setzen
       try   // Teste, ob DOS oder Unix
       {
          dos   = Files.getFileStore ( path ).supportsFileAttributeView ( DosFileAttributeView.class );

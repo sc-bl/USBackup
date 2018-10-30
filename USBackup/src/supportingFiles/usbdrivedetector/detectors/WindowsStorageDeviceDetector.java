@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model.usbdrivedetector.detectors;
+package supportingFiles.usbdrivedetector.detectors;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,8 +22,8 @@ import java.util.List;
 
 import javax.swing.filechooser.FileSystemView;
 
-import model.usbdrivedetector.USBStorageDevice;
-import model.usbdrivedetector.process.CommandExecutor;
+import supportingFiles.usbdrivedetector.USBStorageDevice;
+import supportingFiles.usbdrivedetector.process.CommandExecutor;
 
 /**
  *

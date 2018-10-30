@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package model.usbdrivedetector.events;
+package supportingFiles.usbdrivedetector.events;
 
-import model.usbdrivedetector.USBStorageDevice;
+import supportingFiles.usbdrivedetector.USBStorageDevice;
 
 /**
  *

@@ -1,7 +1,7 @@
-package model.usbdrivedetector;
+package supportingFiles.usbdrivedetector;
 
-import model.usbdrivedetector.events.IUSBDriveListener;
-import model.usbdrivedetector.events.USBStorageEvent;
+import supportingFiles.usbdrivedetector.events.IUSBDriveListener;
+import supportingFiles.usbdrivedetector.events.USBStorageEvent;
 
 /**
  * @author samuelcampos

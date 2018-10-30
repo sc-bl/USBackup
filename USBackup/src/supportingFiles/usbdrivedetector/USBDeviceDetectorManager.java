@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model.usbdrivedetector;
+package supportingFiles.usbdrivedetector;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,10 +21,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import model.usbdrivedetector.detectors.AbstractStorageDeviceDetector;
-import model.usbdrivedetector.events.DeviceEventType;
-import model.usbdrivedetector.events.IUSBDriveListener;
-import model.usbdrivedetector.events.USBStorageEvent;
+import supportingFiles.usbdrivedetector.detectors.AbstractStorageDeviceDetector;
+import supportingFiles.usbdrivedetector.events.DeviceEventType;
+import supportingFiles.usbdrivedetector.events.IUSBDriveListener;
+import supportingFiles.usbdrivedetector.events.USBStorageEvent;
 
 
 /**

@@ -1,13 +1,10 @@
-package lammertz;
-
+package view;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.UIManager;
-
-import controller.main.MainController;
-import hillermann.OptionFrame;
+import controller.MainController;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
