@@ -73,7 +73,7 @@ public class TrayIconUtil
       iCopy3  = createImage ( "images/bcopy3.gif" );
       iCopy4  = createImage ( "images/bcopy4.gif" );
       
-      trayIcon = new TrayIcon ( iYellow, "Warte auf gültigen USB-Stick" );
+      trayIcon = new TrayIcon ( iYellow, "Warte auf gï¿½ltigen USB-Stick" );
       trayIcon.setImageAutoSize ( true );
 
       SwingUtilities.invokeLater 
@@ -146,7 +146,7 @@ public class TrayIconUtil
                   + "Berufskolleg Alsdorf\n"
                   + "52477 Alsdorf, Heidweg 2\n"
                   + "<html><b>www.bk-alsdorf.de</b>\n"
-                  + "© IT 18 B",
+                  + "ï¿½ IT 18 B",
                   "USBackup", JOptionPane.INFORMATION_MESSAGE );
          }
       } );
@@ -192,7 +192,7 @@ public class TrayIconUtil
          System.err.println ( "Resource not found: " + path );
          JOptionPane.showMessageDialog ( null, "TrayImage not found", "USBackup", JOptionPane.ERROR_MESSAGE );
          System.exit ( 0 );
-         return null; // Der blöde Compiler will das so, auch wenn es keinen Sinn macht
+         return null; // Der blï¿½de Compiler will das so, auch wenn es keinen Sinn macht
       }
       else
       {
@@ -220,20 +220,20 @@ public class TrayIconUtil
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iRed );
-      getTrayIcon ().setToolTip ( "Warte auf gültigen USB-Stick" );
+      getTrayIcon ().setToolTip ( "Warte auf gï¿½ltigen USB-Stick" );
    }
 
    public static void showStickFound ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iYellow );
-      getTrayIcon ().setToolTip ( "Stick für Backup gefunden" );
+      getTrayIcon ().setToolTip ( "Stick fï¿½r Backup gefunden" );
    }
 
    public static void showPerformingBackup ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
-      getTrayIcon ().setToolTip ( "Backup wird durchgeführt" );
+      getTrayIcon ().setToolTip ( "Backup wird durchgefï¿½hrt" );
       
       imageThread = new Thread ()
       {
@@ -263,11 +263,11 @@ public class TrayIconUtil
       imageThread.start ();
    }
 
-   public static void schowNothingToDo ()
+   public static void showNothingToDo ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iGreen );
-      getTrayIcon ().setToolTip ( "Backup wurde heute schon durchgeführt" );
+      getTrayIcon ().setToolTip ( "Backup wurde heute schon durchgefï¿½hrt" );
    }
 
    public static void logEvent ( String eventType, String message )
