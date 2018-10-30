@@ -5,9 +5,14 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.UIManager;
+
+import controller.main.MainController;
+
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -53,6 +58,18 @@ public class MainFrame
 		mainFrame.getContentPane().add(btnOptions);
 		
 		btnExecuteBackup = new JButton("Backup starten");
+		btnExecuteBackup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ExecutorService service = Executors.newFixedThreadPool(2); //Aufruf zum Background Thread //Erstmal nur temporär, da im MainController sleeper aufrufe gemacht werden, welche die Navigation Blockiert
+			    service.submit(new Runnable() { //
+			        public void run() { //
+			        	MainController.main(null); //Zeigt das Tray-Icon an
+			        }
+			    });
+				
+			}
+		});
 		btnExecuteBackup.setBounds(24, 47, 149, 23);
 		mainFrame.getContentPane().add(btnExecuteBackup);
 		
