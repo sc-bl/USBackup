@@ -65,15 +65,15 @@ public class TrayIconUtil
       systemTray = SystemTray.getSystemTray ();
       
       // Get Ressources for SystemTrayIcon
-      iRed    = createImage ( "images/bred.gif" );
-      iGreen  = createImage ( "images/bgreen.gif" );
-      iYellow = createImage ( "images/byellow.gif" );
-      iCopy1  = createImage ( "images/bcopy1.gif" );
-      iCopy2  = createImage ( "images/bcopy2.gif" );
-      iCopy3  = createImage ( "images/bcopy3.gif" );
-      iCopy4  = createImage ( "images/bcopy4.gif" );
+      iRed    = createImage ( "supportingFiles/images/bred.gif" );
+      iGreen  = createImage ( "supportingFiles/images/bgreen.gif" );
+      iYellow = createImage ( "supportingFiles/images/byellow.gif" );
+      iCopy1  = createImage ( "supportingFiles/images/bcopy1.gif" );
+      iCopy2  = createImage ( "supportingFiles/images/bcopy2.gif" );
+      iCopy3  = createImage ( "supportingFiles/images/bcopy3.gif" );
+      iCopy4  = createImage ( "supportingFiles/images/bcopy4.gif" );
       
-      trayIcon = new TrayIcon ( iYellow, "Warte auf g�ltigen USB-Stick" );
+      trayIcon = new TrayIcon ( iYellow, "Warte auf g\u00fcltigen USB-Stick" );
       trayIcon.setImageAutoSize ( true );
 
       SwingUtilities.invokeLater 
@@ -146,7 +146,7 @@ public class TrayIconUtil
                   + "Berufskolleg Alsdorf\n"
                   + "52477 Alsdorf, Heidweg 2\n"
                   + "<html><b>www.bk-alsdorf.de</b>\n"
-                  + "� IT 18 B",
+                  + "\u00a9 IT 18 B",
                   "USBackup", JOptionPane.INFORMATION_MESSAGE );
          }
       } );
@@ -220,20 +220,20 @@ public class TrayIconUtil
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iRed );
-      getTrayIcon ().setToolTip ( "Warte auf g�ltigen USB-Stick" );
+      getTrayIcon ().setToolTip ( "Warte auf g\u00fcltigen USB-Stick" );
    }
 
    public static void showStickFound ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iYellow );
-      getTrayIcon ().setToolTip ( "Stick f�r Backup gefunden" );
+      getTrayIcon ().setToolTip ( "Stick f\u00fcr Backup gefunden" );
    }
 
    public static void showPerformingBackup ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
-      getTrayIcon ().setToolTip ( "Backup wird durchgef�hrt" );
+      getTrayIcon ().setToolTip ( "Backup wird durchgef\u00fchrt" );
       
       imageThread = new Thread ()
       {
@@ -267,7 +267,7 @@ public class TrayIconUtil
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iGreen );
-      getTrayIcon ().setToolTip ( "Backup wurde heute schon durchgef�hrt" );
+      getTrayIcon ().setToolTip ( "Backup wurde heute schon durchgef\u00fchrt" );
    }
 
    public static void logEvent ( String eventType, String message )

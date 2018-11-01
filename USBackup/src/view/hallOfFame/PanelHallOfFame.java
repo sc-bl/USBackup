@@ -12,7 +12,7 @@ public class PanelHallOfFame extends PanelMitBackground
 
    public PanelHallOfFame ()
    {
-      this.setHintergrund ( ViewHelper.getImage ( "images/eisen.jpg" ) );
+      this.setHintergrund ( ViewHelper.getImage ( "supportingFiles/images/eisen.jpg" ) );
       this.setLayout ( new BorderLayout ( 10, 10 ) );
       
       JLabel label = new JLabel ( "<html> <br><h3>&nbsp &nbsp Die Entwickler:" );
@@ -21,15 +21,15 @@ public class PanelHallOfFame extends PanelMitBackground
       center.setOpaque ( false );
       center.setLayout ( new GridLayout( 1, 4, 10, 10 ) );
       
-      JLabel bryan   = new JLabel ( ViewHelper.getImageIcon ( "images/Bryan.jpg" ) );
-      JLabel michael   = new JLabel ( ViewHelper.getImageIcon ( "images/Michael.jpg" ) );
-      JLabel nico   = new JLabel ( ViewHelper.getImageIcon ( "images/Nico.jpg" ) );
-      JLabel simon   = new JLabel ( ViewHelper.getImageIcon ( "images/Simon.jpg" ) );
+      JLabel bryan   = new JLabel ( ViewHelper.getImageIcon ( "supportingFiles/images/Bryan.jpg" ) );
+      JLabel michael   = new JLabel ( ViewHelper.getImageIcon ( "supportingFiles/images/Michael.jpg" ) );
+      JLabel nico   = new JLabel ( ViewHelper.getImageIcon ( "supportingFiles/images/Nico.jpg" ) );
+      JLabel simon   = new JLabel ( ViewHelper.getImageIcon ( "supportingFiles/images/Simon.jpg" ) );
       
-      bryan.setToolTipText   ( "<html><b>Bryan</b><br>Schreibt die beste Doku<br>Naja, die einzige ..." );
-      michael.setToolTipText ( "<html><b>Michael</b><br>Heimlicher Projektleiter" );
-      nico.setToolTipText    ( "<html><b>Nico</b><br>Könnte, was er machen sollte" );
-      simon.setToolTipText   ( "<html><b>Simon</b><br>Meister des Repository ...<br>... irgendwann" );
+      bryan.setToolTipText   ( "<html><b>Bryan</b>" );
+      michael.setToolTipText ( "<html><b>Michael</b>" );
+      nico.setToolTipText    ( "<html><b>Nico</b>" );
+      simon.setToolTipText   ( "<html><b>Simon</b>" );
       
       center.add ( bryan );
       center.add ( michael );
