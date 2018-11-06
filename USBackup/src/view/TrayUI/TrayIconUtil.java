@@ -28,10 +28,11 @@ public class TrayIconUtil
    /** The ActionCommand returned when about is selected */
    public static final int ACTION_ABOUT = 2;
 
-   private static TrayIcon   trayIcon;
+   private static final TrayIcon   trayIcon = initTrayIcon ();         // Singleton!
+   private static final EventFrame logFrame = new EventFrame ( null ); // Singleton!
+
    private static SystemTray systemTray;
    private static PopupMenu  popupMenu;
-   private static EventFrame logFrame;
    
    private static Image iRed;
    private static Image iGreen;
@@ -44,15 +45,49 @@ public class TrayIconUtil
    private static Thread imageThread;
 
    private TrayIconUtil () {}
+
+   public static synchronized void setState ( String state )
+   {
+      switch ( state )
+      {
+         case supportingFiles.Constants.STATE_WAITING_FOR_STICK:
+            showWaitingForStick ();
+            break;
+         case supportingFiles.Constants.STATE_STICK_FOUND:
+            showStickFound ();
+            break;
+         case supportingFiles.Constants.STATE_PERFORMING_BACKUP:
+            showPerformingBackup ();
+            break;
+         case supportingFiles.Constants.STATE_NOTHING_TO_DO:
+            showNothingToDo ();
+            break;
+         default:   
+            showWaitingForStick ();
+            break;
+      }
+   }
    
+   public static synchronized void  logEvent ( String eventType, String message )
+   {
+      if ( logFrame != null )
+         logFrame.logEvent( eventType, message );
+      else
+         System.out.println ( "Message, bevor TrayIcon initialisiert wurde" );
+   }
+
+   
+   /////////////////////////////////////////////////////////////////////////////
+   // Ab hier ist alles "private" und darf nach Belieben verändert werden.
+   /////////////////////////////////////////////////////////////////////////////
    private static TrayIcon getTrayIcon()
    {
-      if ( trayIcon == null )
-         initTrayIcon ();
+      //if ( trayIcon == null )
+         //initTrayIcon ();
       return trayIcon;
    }
    
-   private static void initTrayIcon ()
+   private static TrayIcon initTrayIcon ()
    {
       // Check the SystemTray support
       if ( !SystemTray.isSupported () )
@@ -73,7 +108,7 @@ public class TrayIconUtil
       iCopy3  = createImage ( "supportingFiles/images/bcopy3.gif" );
       iCopy4  = createImage ( "supportingFiles/images/bcopy4.gif" );
       
-      trayIcon = new TrayIcon ( iYellow, "Warte auf g\u00fcltigen USB-Stick" );
+      TrayIcon trayIcon = new TrayIcon ( iYellow, "Warte auf g\u00fcltigen USB-Stick" );
       trayIcon.setImageAutoSize ( true );
 
       SwingUtilities.invokeLater 
@@ -83,15 +118,14 @@ public class TrayIconUtil
            public void run () { createAndShowGUI (); } 
         }
       );
+      
+      return trayIcon;
    }
 
    private static void createAndShowGUI ()
    {
       // Create visible components
       setLookAndFeel ();
-
-      // Create LogFrame
-      logFrame = new EventFrame ( null );
       
       // Create main menu
       popupMenu = new PopupMenu ();
@@ -142,7 +176,7 @@ public class TrayIconUtil
          public void actionPerformed ( ActionEvent e )
          {
             JOptionPane.showMessageDialog ( null, "<html><H1>USBackup</h1>\n"
-                  + "Version 0.1.01\n"
+                  + "Version " + supportingFiles.ProgramConfigurations.VERSION_NUMBER + "\n"
                   + "Berufskolleg Alsdorf\n"
                   + "52477 Alsdorf, Heidweg 2\n"
                   + "<html><b>www.bk-alsdorf.de</b>\n"
@@ -192,7 +226,7 @@ public class TrayIconUtil
          System.err.println ( "Resource not found: " + path );
          JOptionPane.showMessageDialog ( null, "TrayImage not found", "USBackup", JOptionPane.ERROR_MESSAGE );
          System.exit ( 0 );
-         return null; // Der blï¿½de Compiler will das so, auch wenn es keinen Sinn macht
+         return null; // Der blöde Compiler will das so, auch wenn es keinen Sinn macht
       }
       else
       {
@@ -216,21 +250,32 @@ public class TrayIconUtil
       }
    }
    
-   public static void showWaitingForStick ()
+   /**
+    * Kill thread for animated icon
+    * Set icon to red
+    */
+   private static void showWaitingForStick ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iRed );
       getTrayIcon ().setToolTip ( "Warte auf g\u00fcltigen USB-Stick" );
    }
 
-   public static void showStickFound ()
+   /**
+    * Kill thread for animated icon
+    * Set icon to yellow
+    */
+   private static void showStickFound ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iYellow );
       getTrayIcon ().setToolTip ( "Stick f\u00fcr Backup gefunden" );
    }
 
-   public static void showPerformingBackup ()
+   /**
+    * Start thread for animated icon (changing colours) 
+    */
+   private static void showPerformingBackup ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setToolTip ( "Backup wird durchgef\u00fchrt" );
@@ -263,17 +308,19 @@ public class TrayIconUtil
       imageThread.start ();
    }
 
-   public static void showNothingToDo ()
+   /**
+    * Kill thread for animated icon
+    * Set icon to green
+    */
+private static void showNothingToDo ()
    {
       if ( imageThread != null ) imageThread.interrupt ();
       getTrayIcon ().setImage ( iGreen );
       getTrayIcon ().setToolTip ( "Backup wurde heute schon durchgef\u00fchrt" );
    }
 
-   public static void logEvent ( String eventType, String message )
-   {
-      if ( logFrame != null )
-         logFrame.logEvent( eventType, message );
-   }
+   /////////////////////////////////////////////////////////////////////////////////////////
+   // public methods
+   /////////////////////////////////////////////////////////////////////////////////////////
 }
 

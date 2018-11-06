@@ -26,18 +26,6 @@ public class EventLog extends JPanel
 {
    private static final long serialVersionUID = 8790982983791729227L;
 
-   /** Info message dispayed in black */
-   public static final String INFO    = "Info";
-
-   /** Debug message dispayed in blue */
-   public static final String DEBUG   = "Debug";
-
-   /** Warning message dispayed in yellow */
-   public static final String WARNING = "Warning";
-
-   /** Error message dispayed in red */
-   public static final String ERROR   = "Error";
-   
    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat ( " yyyy.MM.dd - HH:mm:ss ");
    
    // Basiseinstellungen für alle grafischen Objekte
@@ -110,7 +98,7 @@ public class EventLog extends JPanel
       gbc.weighty = 0.1;
       dummy = new JLabel(" ");
       gridBagPanel.add ( dummy, gbc );
-      gbc.weighty = 0;
+      gbc.weighty = 0; 
    }
    
    private void internAddMessage ( String type, String message)
@@ -121,10 +109,10 @@ public class EventLog extends JPanel
        
       switch ( type )
       {
-         case INFO:    color = Color.black;  break;
-         case DEBUG:   color = Color.blue;   break;
-         case WARNING: color = Color.orange; break;
-         case ERROR:   color = Color.red;    break;
+         case supportingFiles.Constants.MESSAGE_INFO:    color = Color.black;  break;
+         case supportingFiles.Constants.MESSAGE_DEBUG:   color = Color.blue;   break;
+         case supportingFiles.Constants.MESSAGE_WARNING: color = Color.orange; break;
+         case supportingFiles.Constants.MESSAGE_ERROR:   color = Color.red;    break;
          default:      color = Color.black;  type = "Unknown"; break;
       }
       
@@ -142,7 +130,6 @@ public class EventLog extends JPanel
       text.setEditable ( false );
       text.setLineWrap ( true );
       text.setWrapStyleWord ( true );
-      // text.setForeground ( color );
       text.setBackground ( Color.white );
       gbc.gridx   = 1;
       gbc.gridy   = yCounter ;

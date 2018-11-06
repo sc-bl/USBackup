@@ -15,5 +15,6 @@ public class ProgramConfigurations
    /** File name on target device containing generated UUID */
    public static final String UUID_FILE_NAME = ".USBackup.uuid";
 
-   
+   /** Version Number displayed in "about message" */
+   public static final String VERSION_NUMBER = "0.1.02";
 }

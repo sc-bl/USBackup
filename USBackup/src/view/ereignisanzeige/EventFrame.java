@@ -53,12 +53,4 @@ public class EventFrame
    {
       logPanel.addMessage ( infoType, message );
    }
-   
-   /** For testing only */
-   public static void main ( String[] ags )
-   {
-      EventFrame frame  = new EventFrame ( null );
-      frame.setVisible ( true );
-      frame.logEvent ( EventLog.DEBUG, "Testtext" );
-   }
 }

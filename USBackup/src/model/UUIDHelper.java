@@ -19,15 +19,15 @@ import view.TrayUI.TrayIconUtil;
 
 public class UUIDHelper
 {
-   private static LinkOption[] linkOption = new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
+   private LinkOption[] linkOption = new LinkOption[] { LinkOption.NOFOLLOW_LINKS };
    
-   private static CopyOption[] copyOption = new CopyOption[] { // StandardCopyOption.ATOMIC_MOVE,      // Nur beim Umbenennen verwenden!
-                                                               // StandardCopyOption.COPY_ATTRIBUTES,  // Attribute mit �bernehmen
-                                                               // StandardCopyOption.REPLACE_EXISTING, // �berschreiben, wenn schon vorhanden
-                                                               LinkOption.NOFOLLOW_LINKS };         // OriginalLink, nicht die verkn�pfte Datei 
+   private CopyOption[] copyOption = new CopyOption[] { // StandardCopyOption.ATOMIC_MOVE,      // Nur beim Umbenennen verwenden!
+                                                        // StandardCopyOption.COPY_ATTRIBUTES,  // Attribute mit �bernehmen
+                                                        // StandardCopyOption.REPLACE_EXISTING, // �berschreiben, wenn schon vorhanden
+                                                           LinkOption.NOFOLLOW_LINKS };         // OriginalLink, nicht die verkn�pfte Datei 
 
-   private static boolean dos  = false;
-   private static boolean posix = false;
+   private boolean dos  = false;
+   private boolean posix = false;
 
    /**
     * Creates a hidden and write protected file on target device containing a random UUID.<br>
